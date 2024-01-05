@@ -15,26 +15,14 @@ const Home = () => {
       });
     }
   };
-  const downloadFile = () => {
-    // Replace 'your-file-url' with the actual URL or path to your file
-    const fileUrl = '../assets/AnandakrishnanKB.pdf';
-  
-    // Create an anchor element
-    const link = document.createElement('a');
-  
-    // Set the href attribute to the file URL
-    link.href = fileUrl;
-  
-    // Set the download attribute with the desired file name
-    link.download = 'AnandakrishnanKB';
-  
-    // Append the link to the document
+  const handleDownload = () => {
+    // Replace "path/to/your/resume.pdf" with the actual path to your resume file
+    const resumeFilePath = "./AnandakrishnanKB.pdf";
+    const link = document.createElement("a");
+    link.href = resumeFilePath;
+    link.setAttribute("download", "AnandakrishnanKB-resume.pdf");
     document.body.appendChild(link);
-  
-    // Trigger a click on the link to start the download
     link.click();
-  
-    // Remove the link from the document after the download
     document.body.removeChild(link);
   };
   
@@ -54,7 +42,7 @@ const Home = () => {
           </Button>
           <Button className="mobile-btn"
             icon={<DownloadOutlined />}
-            onClick={downloadFile}
+            onClick={handleDownload}
             type="primary"
             size="large"
           >
